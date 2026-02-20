@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-20T11:32:19.183003",
+  "last_updated": "2026-02-20T11:32:26.543474",
   "items": {
     "Plastron D'enter|mythique": {
       "nom": "Plastron D'enter",
@@ -77,6 +77,16 @@
       "historique": [
         {
           "timestamp": "2026-02-20T11:32:19.182967",
+          "prix": 8998
+        }
+      ]
+    },
+    "tournesol ancestral|rare": {
+      "nom": "tournesol ancestral",
+      "rarete": "rare",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T11:32:26.543454",
           "prix": 8998
         }
       ]
