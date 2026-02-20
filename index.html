@@ -519,8 +519,8 @@
       document.getElementById("empty").style.display = "none";
 
       const pending = [];
-      items.forEach(([nom, info], i) => {
-        const { card, id, hist } = buildCard(nom, info, i * 60);
+      items.forEach(([, info], i) => {
+        const { card, id, hist } = buildCard(info.nom ?? info, info, i * 60);
         grid.appendChild(card);
         pending.push({ id, hist });
       });
