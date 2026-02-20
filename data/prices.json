@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-20T11:53:42.504417",
+  "last_updated": "2026-02-20T11:53:59.469590",
   "items": {
     "Plastron D'enter|mythique": {
       "nom": "Plastron D'enter",
@@ -16,6 +16,10 @@
         {
           "timestamp": "2026-02-20T11:53:34.530643",
           "prix": 1
+        },
+        {
+          "timestamp": "2026-02-20T11:53:59.469582",
+          "prix": 34999
         }
       ]
     },
