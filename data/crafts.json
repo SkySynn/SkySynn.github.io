@@ -1,3 +1,20 @@
 {
-  "crafts": {}
+  "crafts": {
+    "huile grossière|commun": {
+      "nom": "huile grossière",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "fleur d'irisse",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "chardon couronné",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    }
+  }
 }
