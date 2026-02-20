@@ -137,7 +137,17 @@
           "prix": 2499
         }
       ]
+    },
+    "scalp de réman'hante|commun": {
+      "nom": "scalp de réman'hante",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T14:27:24Z",
+          "prix": 69
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T14:27:15Z"
+  "last_updated": "2026-02-20T14:27:24Z"
 }
