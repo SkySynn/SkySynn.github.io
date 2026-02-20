@@ -47,7 +47,17 @@
           "prix": 3
         }
       ]
+    },
+    "fleur d'irisse|commun": {
+      "nom": "fleur d'irisse",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T14:03:42Z",
+          "prix": 3
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T14:03:34Z"
+  "last_updated": "2026-02-20T14:03:42Z"
 }
