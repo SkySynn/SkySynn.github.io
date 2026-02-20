@@ -15,6 +15,52 @@
           "quantite": 5
         }
       ]
+    },
+    "bas-ventre d'ésrevni|legendaire": {
+      "nom": "bas-ventre d'ésrevni",
+      "rarete": "legendaire",
+      "composants": [
+        {
+          "nom": "poudre",
+          "rarete": "legendaire",
+          "quantite": 574
+        },
+        {
+          "nom": "haricot sympa",
+          "rarete": "rare",
+          "quantite": 11
+        },
+        {
+          "nom": "mouchards de démentia",
+          "rarete": "rare",
+          "quantite": 11
+        },
+        {
+          "nom": "bas-ventre d'ésrevni",
+          "rarete": "mythique",
+          "quantite": 1
+        },
+        {
+          "nom": "trophée de !@#dh`~",
+          "rarete": "mythique",
+          "quantite": 9
+        },
+        {
+          "nom": "scalp de réman'hante",
+          "rarete": "commun",
+          "quantite": 104
+        },
+        {
+          "nom": "sioupère-glou infernale",
+          "rarete": "commun",
+          "quantite": 95
+        },
+        {
+          "nom": "essence infernale",
+          "rarete": "commun",
+          "quantite": 45
+        }
+      ]
     }
   }
 }
