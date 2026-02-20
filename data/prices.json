@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-20T13:29:09.729028",
+  "last_updated": "2026-02-20T13:35:02.925171",
   "items": {
     "Plastron D'enter|mythique": {
       "nom": "Plastron D'enter",
@@ -158,6 +158,16 @@
         {
           "timestamp": "2026-02-20T13:29:09.729019",
           "prix": 144444
+        }
+      ]
+    },
+    "test diagnostic|commun": {
+      "nom": "test diagnostic",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T13:35:02.925159",
+          "prix": 1234
         }
       ]
     }
