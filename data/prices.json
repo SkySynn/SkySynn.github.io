@@ -117,7 +117,17 @@
           "prix": 1492
         }
       ]
+    },
+    "bas-ventre d'ésrevni|mythique": {
+      "nom": "bas-ventre d'ésrevni",
+      "rarete": "mythique",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T14:27:09Z",
+          "prix": 23390
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T14:27:01Z"
+  "last_updated": "2026-02-20T14:27:09Z"
 }
