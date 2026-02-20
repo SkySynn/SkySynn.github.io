@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-20T11:32:26.543474",
+  "last_updated": "2026-02-20T11:32:33.776338",
   "items": {
     "Plastron D'enter|mythique": {
       "nom": "Plastron D'enter",
@@ -88,6 +88,16 @@
         {
           "timestamp": "2026-02-20T11:32:26.543454",
           "prix": 8998
+        }
+      ]
+    },
+    "croton malté|rare": {
+      "nom": "croton malté",
+      "rarete": "rare",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T11:32:33.776312",
+          "prix": 8984
         }
       ]
     }
