@@ -27,7 +27,17 @@
           "prix": 144444
         }
       ]
+    },
+    "huile grossière|commun": {
+      "nom": "huile grossière",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T14:03:25Z",
+          "prix": 195
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T13:49:10Z"
+  "last_updated": "2026-02-20T14:03:25Z"
 }
