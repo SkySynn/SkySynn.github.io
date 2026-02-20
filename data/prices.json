@@ -147,7 +147,17 @@
           "prix": 69
         }
       ]
+    },
+    "sioupère-glou infernale|commun": {
+      "nom": "sioupère-glou infernale",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T14:27:32Z",
+          "prix": 819
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T14:27:24Z"
+  "last_updated": "2026-02-20T14:27:32Z"
 }
