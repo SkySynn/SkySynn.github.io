@@ -81,7 +81,7 @@ def recevoir_prix():
     if not body:
         return jsonify({"error": "JSON invalide"}), 400
 
-    nom    = str(body.get("nom", "")).strip()
+    nom    = str(body.get("nom", "")).strip().lower()
     rarete = str(body.get("rarete", "")).strip().lower()
     prix   = body.get("prix")
 
