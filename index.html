@@ -4,165 +4,542 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wakfu HDV — Prix</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    :root {
+      --bg:        #0d0d1a;
+      --surface:   #13132a;
+      --border:    #1e1e3f;
+      --accent:    #00c8ff;
+      --gold:      #ffd700;
+      --green:     #00e676;
+      --red:       #ff5252;
+      --muted:     #5a5a8a;
+      --text:      #e0e0ff;
+    }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-      background: #1a1a2e;
-      color: #e0e0e0;
-      font-family: 'Consolas', 'Courier New', monospace;
-      padding: 24px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
     }
 
-    h1 {
-      color: #00d4ff;
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(135deg, #0d0d1a 0%, #161640 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 28px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--accent), #7b4fff);
+      border-radius: 12px;
+      display: grid; place-items: center;
+      font-size: 20px;
+    }
+
+    header h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--accent), #a78bfa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    #refresh-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    #refresh-btn:hover { background: rgba(0,200,255,0.1); }
+    #refresh-btn.spinning svg { animation: spin 1s linear infinite; }
+
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    #last-updated {
+      font-size: 0.75rem;
+      color: var(--muted);
+    }
+
+    /* ── STATS BAR ── */
+    .stats-bar {
+      display: flex;
+      gap: 1px;
+      background: var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .stat {
+      flex: 1;
+      background: var(--surface);
+      padding: 16px 24px;
+      text-align: center;
+    }
+
+    .stat-value {
       font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 2px;
+    }
+
+    /* ── GRID ── */
+    main {
+      padding: 32px 40px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 20px;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 22px;
+      transition: border-color 0.2s, transform 0.2s;
+      animation: fadeIn 0.4s ease both;
+    }
+    .card:hover {
+      border-color: rgba(0,200,255,0.3);
+      transform: translateY(-2px);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 18px;
+    }
+
+    .item-name {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.3;
+    }
+
+    .badge {
+      font-size: 0.65rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 3px 9px;
+      border-radius: 20px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .commun     { background: rgba(180,180,180,.15); color: #aaa; border: 1px solid #444; }
+    .rare       { background: rgba(30,100,200,.2);  color: #5ba4ff; border: 1px solid #1e64c8; }
+    .mythique   { background: rgba(140,40,200,.2);  color: #c87dff; border: 1px solid #8c28c8; }
+    .legendaire { background: rgba(200,150,0,.2);   color: #ffd700; border: 1px solid #c89600; }
+    .souvenir   { background: rgba(200,40,40,.2);   color: #ff7070; border: 1px solid #c82828; }
+    .epique     { background: rgba(0,180,80,.2);    color: #00e676; border: 1px solid #00b450; }
+    .relique    { background: rgba(200,80,0,.2);    color: #ffaa44; border: 1px solid #c85000; }
+
+    /* prix principal */
+    .price-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 10px;
       margin-bottom: 6px;
     }
 
-    #last-updated {
+    .price-main {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: -0.02em;
+      line-height: 1;
+    }
+
+    .price-unit {
       font-size: 0.8rem;
-      color: #888;
-      margin-bottom: 24px;
+      color: var(--muted);
+      margin-bottom: 4px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.9rem;
+    .trend {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 6px;
+      margin-bottom: 4px;
+    }
+    .trend.up   { color: var(--green); background: rgba(0,230,118,.1); }
+    .trend.down { color: var(--red);   background: rgba(255,82,82,.1); }
+    .trend.flat { color: var(--muted); background: rgba(90,90,138,.1); }
+
+    /* sparkline */
+    .sparkline-wrap {
+      height: 56px;
+      margin: 14px 0 16px;
     }
 
-    thead th {
-      background: #0f3460;
-      color: #00d4ff;
-      padding: 10px 14px;
-      text-align: left;
-      font-weight: bold;
-      letter-spacing: 0.05em;
+    /* stats sous le graphe */
+    .card-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
     }
 
-    tbody tr {
-      border-bottom: 1px solid #2a2a4a;
-      transition: background 0.15s;
-    }
+    .cs-item { text-align: center; }
 
-    tbody tr:hover { background: #16213e; }
-
-    td {
-      padding: 9px 14px;
-    }
-
-    .prix    { color: #ffd700; font-weight: bold; }
-    .rarete  { font-size: 0.78rem; padding: 2px 7px; border-radius: 4px; }
-    .commun    { background:#555;    color:#fff; }
-    .rare      { background:#1a5c9e; color:#fff; }
-    .mythique  { background:#7a1c9e; color:#fff; }
-    .legendaire{ background:#b8860b; color:#fff; }
-    .souvenir  { background:#9e1a1a; color:#fff; }
-    .epique    { background:#1a7a3a; color:#fff; }
-    .relique   { background:#9e4a1a; color:#fff; }
-
-    .mini { color:#888; font-size:0.8rem; }
-
-    #refresh-btn {
-      margin-bottom: 20px;
-      padding: 7px 18px;
-      background: #0f3460;
-      color: #00d4ff;
-      border: 1px solid #00d4ff;
-      border-radius: 4px;
-      cursor: pointer;
-      font-family: inherit;
+    .cs-val {
       font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--text);
     }
-    #refresh-btn:hover { background: #1a4a80; }
 
-    #empty-msg {
-      color: #888;
-      margin-top: 40px;
+    .cs-lbl {
+      font-size: 0.65rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* ── EMPTY ── */
+    .empty {
       text-align: center;
+      padding: 80px 20px;
+      color: var(--muted);
+    }
+    .empty svg { margin-bottom: 16px; opacity: 0.3; }
+    .empty h2  { font-size: 1.1rem; margin-bottom: 8px; }
+    .empty p   { font-size: 0.85rem; }
+
+    /* ── PULSE dot ── */
+    .live-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 0 rgba(0,230,118,.5);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%   { box-shadow: 0 0 0 0   rgba(0,230,118,.5); }
+      70%  { box-shadow: 0 0 0 8px rgba(0,230,118,0);  }
+      100% { box-shadow: 0 0 0 0   rgba(0,230,118,0);  }
+    }
+
+    @media (max-width: 600px) {
+      header, main { padding: 20px; }
+      .stats-bar { flex-wrap: wrap; }
     }
   </style>
 </head>
 <body>
 
-  <h1>Wakfu HDV — Prix des items</h1>
-  <div id="last-updated">Chargement…</div>
+<header>
+  <div class="logo">
+    <div class="logo-icon">⚔️</div>
+    <div>
+      <h1>Wakfu HDV — Prix</h1>
+      <p id="last-updated">Chargement…</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="live-dot" title="Auto-refresh toutes les 60s"></div>
+    <button id="refresh-btn" onclick="loadData()">
+      <svg id="refresh-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <polyline points="23 4 23 10 17 10"/>
+        <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
+      </svg>
+      Actualiser
+    </button>
+  </div>
+</header>
 
-  <button id="refresh-btn" onclick="loadData()">↻ Actualiser</button>
+<div class="stats-bar" id="stats-bar" style="display:none">
+  <div class="stat">
+    <div class="stat-value" id="s-items">—</div>
+    <div class="stat-label">Items suivis</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" id="s-scans">—</div>
+    <div class="stat-label">Scans totaux</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" id="s-lowest">—</div>
+    <div class="stat-label">Prix le plus bas</div>
+  </div>
+  <div class="stat">
+    <div class="stat-value" id="s-update">—</div>
+    <div class="stat-label">Dernière MAJ</div>
+  </div>
+</div>
 
-  <table id="table" style="display:none">
-    <thead>
-      <tr>
-        <th>Item</th>
-        <th>Rareté</th>
-        <th>Dernier prix</th>
-        <th>Min / Max</th>
-        <th>Mesures</th>
-        <th>Dernière MAJ</th>
-      </tr>
-    </thead>
-    <tbody id="tbody"></tbody>
-  </table>
+<main>
+  <div class="section-title">Items suivis</div>
+  <div class="grid" id="grid"></div>
+  <div class="empty" id="empty" style="display:none">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+    </svg>
+    <h2>Aucune donnée</h2>
+    <p>Lance le scanner Python pour commencer à collecter des prix.</p>
+  </div>
+</main>
 
-  <p id="empty-msg" style="display:none">Aucune donnée pour le moment.</p>
+<script>
+  const DATA_URL = "data/prices.json";
 
-  <script>
-    const DATA_URL = "data/prices.json";
+  function fmt(n) {
+    if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + "M";
+    if (n >= 1_000)     return (n / 1_000).toFixed(n % 1000 === 0 ? 0 : 1) + "k";
+    return n.toLocaleString("fr-FR");
+  }
 
-    function formatDate(iso) {
-      if (!iso) return "—";
-      const d = new Date(iso);
-      return d.toLocaleString("fr-FR", { dateStyle: "short", timeStyle: "short" });
-    }
+  function fmtDate(iso) {
+    if (!iso) return "—";
+    return new Date(iso).toLocaleString("fr-FR", { dateStyle: "short", timeStyle: "short" });
+  }
 
-    function formatPrix(n) {
-      return n.toLocaleString("fr-FR") + " k";
-    }
+  function fmtTime(iso) {
+    if (!iso) return "";
+    return new Date(iso).toLocaleTimeString("fr-FR", { hour: "2-digit", minute: "2-digit" });
+  }
 
-    async function loadData() {
+  function trendInfo(hist) {
+    if (hist.length < 2) return { cls: "flat", label: "Stable", pct: 0 };
+    const prev = hist.at(-2).prix;
+    const curr = hist.at(-1).prix;
+    const pct  = ((curr - prev) / prev * 100).toFixed(1);
+    if (curr > prev) return { cls: "up",   label: `+${pct}%`, pct };
+    if (curr < prev) return { cls: "down", label: `${pct}%`,  pct };
+    return { cls: "flat", label: "Stable", pct: 0 };
+  }
+
+  const charts = {};
+
+  function buildCard(nom, info, delay) {
+    const hist   = info.historique || [];
+    const prices = hist.map(h => h.prix);
+    const last   = hist.at(-1);
+    const min    = prices.length ? Math.min(...prices) : null;
+    const max    = prices.length ? Math.max(...prices) : null;
+    const avg    = prices.length ? Math.round(prices.reduce((a,b)=>a+b,0)/prices.length) : null;
+    const trend  = trendInfo(hist);
+    const id     = "chart-" + nom.replace(/\s+/g, "_").replace(/'/g, "");
+
+    const card = document.createElement("div");
+    card.className = "card";
+    card.style.animationDelay = delay + "ms";
+
+    card.innerHTML = `
+      <div class="card-header">
+        <div class="item-name">${nom}</div>
+        <span class="badge ${info.rarete}">${info.rarete}</span>
+      </div>
+
+      <div class="price-row">
+        <div class="price-main">${last ? fmt(last.prix) : "—"}</div>
+        <div class="price-unit">kamas</div>
+        ${hist.length >= 2
+          ? `<div class="trend ${trend.cls}">${trend.cls === "up" ? "▲" : trend.cls === "down" ? "▼" : "—"} ${trend.label}</div>`
+          : ""}
+      </div>
+
+      <div class="sparkline-wrap">
+        <canvas id="${id}"></canvas>
+      </div>
+
+      <div class="card-stats">
+        <div class="cs-item">
+          <div class="cs-val">${min !== null ? fmt(min) : "—"}</div>
+          <div class="cs-lbl">Min</div>
+        </div>
+        <div class="cs-item">
+          <div class="cs-val">${avg !== null ? fmt(avg) : "—"}</div>
+          <div class="cs-lbl">Moy</div>
+        </div>
+        <div class="cs-item">
+          <div class="cs-val">${max !== null ? fmt(max) : "—"}</div>
+          <div class="cs-lbl">Max</div>
+        </div>
+      </div>
+    `;
+
+    return { card, id, hist };
+  }
+
+  function drawSparkline(id, hist) {
+    const canvas = document.getElementById(id);
+    if (!canvas || hist.length < 2) return;
+
+    if (charts[id]) charts[id].destroy();
+
+    const labels = hist.map(h => fmtTime(h.timestamp));
+    const data   = hist.map(h => h.prix);
+    const last   = data.at(-1);
+    const prev   = data.at(-2) ?? last;
+    const color  = last >= prev ? "#00e676" : "#ff5252";
+
+    charts[id] = new Chart(canvas, {
+      type: "line",
+      data: {
+        labels,
+        datasets: [{
+          data,
+          borderColor: color,
+          borderWidth: 2,
+          pointRadius: 0,
+          pointHoverRadius: 4,
+          pointHoverBackgroundColor: color,
+          fill: true,
+          backgroundColor: (ctx) => {
+            const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 56);
+            g.addColorStop(0, color + "33");
+            g.addColorStop(1, color + "00");
+            return g;
+          },
+          tension: 0.4,
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: { duration: 600 },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => fmt(ctx.raw) + " k"
+            }
+          }
+        },
+        scales: {
+          x: { display: false },
+          y: { display: false }
+        }
+      }
+    });
+  }
+
+  async function loadData() {
+    const btn = document.getElementById("refresh-btn");
+    const icon = document.getElementById("refresh-icon");
+    btn.classList.add("spinning");
+    icon.style.animationPlayState = "running";
+
+    try {
       const res  = await fetch(DATA_URL + "?t=" + Date.now());
       const data = await res.json();
+      const items = Object.entries(data.items || {});
 
-      document.getElementById("last-updated").textContent =
-        "Dernière mise à jour : " + formatDate(data.last_updated);
+      // Stats bar
+      const totalScans  = items.reduce((s,[,v]) => s + (v.historique?.length||0), 0);
+      const allPrices   = items.flatMap(([,v]) => (v.historique||[]).map(h=>h.prix));
+      const lowestPrice = allPrices.length ? Math.min(...allPrices) : null;
 
-      const items = Object.entries(data.items);
-      const tbody = document.getElementById("tbody");
-      tbody.innerHTML = "";
+      document.getElementById("s-items").textContent  = items.length;
+      document.getElementById("s-scans").textContent  = totalScans;
+      document.getElementById("s-lowest").textContent = lowestPrice !== null ? fmt(lowestPrice)+" k" : "—";
+      document.getElementById("s-update").textContent = fmtDate(data.last_updated);
+      document.getElementById("last-updated").textContent = "Mis à jour le " + fmtDate(data.last_updated);
+      document.getElementById("stats-bar").style.display = items.length ? "flex" : "none";
 
-      if (items.length === 0) {
-        document.getElementById("table").style.display = "none";
-        document.getElementById("empty-msg").style.display = "block";
+      const grid = document.getElementById("grid");
+      grid.innerHTML = "";
+
+      if (!items.length) {
+        document.getElementById("empty").style.display = "block";
         return;
       }
+      document.getElementById("empty").style.display = "none";
 
-      document.getElementById("table").style.display = "table";
-      document.getElementById("empty-msg").style.display = "none";
+      const pending = [];
+      items.forEach(([nom, info], i) => {
+        const { card, id, hist } = buildCard(nom, info, i * 60);
+        grid.appendChild(card);
+        pending.push({ id, hist });
+      });
 
-      for (const [nom, info] of items) {
-        const hist   = info.historique || [];
-        const prices = hist.map(h => h.prix);
-        const last   = hist.at(-1);
-        const min    = prices.length ? Math.min(...prices) : null;
-        const max    = prices.length ? Math.max(...prices) : null;
+      // Dessiner les graphes après insertion dans le DOM
+      requestAnimationFrame(() => {
+        pending.forEach(({ id, hist }) => drawSparkline(id, hist));
+      });
 
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-          <td>${nom}</td>
-          <td><span class="rarete ${info.rarete}">${info.rarete}</span></td>
-          <td class="prix">${last ? formatPrix(last.prix) : "—"}</td>
-          <td class="mini">${min !== null ? formatPrix(min) + " / " + formatPrix(max) : "—"}</td>
-          <td class="mini">${prices.length}</td>
-          <td class="mini">${last ? formatDate(last.timestamp) : "—"}</td>
-        `;
-        tbody.appendChild(tr);
-      }
+    } catch(e) {
+      console.error(e);
+      document.getElementById("last-updated").textContent = "Erreur de chargement";
+    } finally {
+      btn.classList.remove("spinning");
     }
+  }
 
-    loadData();
-    // Auto-refresh toutes les 60 secondes
-    setInterval(loadData, 60_000);
-  </script>
+  loadData();
+  setInterval(loadData, 60_000);
+</script>
 </body>
 </html>
