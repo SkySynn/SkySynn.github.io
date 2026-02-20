@@ -87,7 +87,17 @@
           "prix": 287700
         }
       ]
+    },
+    "poudre|legendaire": {
+      "nom": "poudre",
+      "rarete": "legendaire",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T14:26:45Z",
+          "prix": 17
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T14:26:37Z"
+  "last_updated": "2026-02-20T14:26:45Z"
 }
