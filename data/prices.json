@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-20T10:31:18.324135",
+  "last_updated": "2026-02-20T10:31:24.822098",
   "items": {
     "Plastron d'enter": {
       "rarete": "mythique",
@@ -7,6 +7,10 @@
         {
           "timestamp": "2026-02-20T10:31:18.324124",
           "prix": 34999
+        },
+        {
+          "timestamp": "2026-02-20T10:31:24.822089",
+          "prix": 144444
         }
       ]
     }
