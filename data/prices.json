@@ -77,7 +77,17 @@
           "prix": 3
         }
       ]
+    },
+    "bas-ventre d'ésrevni|legendaire": {
+      "nom": "bas-ventre d'ésrevni",
+      "rarete": "legendaire",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T14:26:37Z",
+          "prix": 287700
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T14:21:45Z"
+  "last_updated": "2026-02-20T14:26:37Z"
 }
