@@ -97,7 +97,17 @@
           "prix": 17
         }
       ]
+    },
+    "haricot sympa|rare": {
+      "nom": "haricot sympa",
+      "rarete": "rare",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T14:26:53Z",
+          "prix": 2887
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T14:26:45Z"
+  "last_updated": "2026-02-20T14:26:53Z"
 }
