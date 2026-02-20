@@ -127,7 +127,17 @@
           "prix": 23390
         }
       ]
+    },
+    "trophée de !@#dh`~|mythique": {
+      "nom": "trophée de !@#dh`~",
+      "rarete": "mythique",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T14:27:15Z",
+          "prix": 2499
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T14:27:09Z"
+  "last_updated": "2026-02-20T14:27:15Z"
 }
