@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-20T11:32:11.793271",
+  "last_updated": "2026-02-20T11:32:19.183003",
   "items": {
     "Plastron D'enter|mythique": {
       "nom": "Plastron D'enter",
@@ -68,6 +68,16 @@
         {
           "timestamp": "2026-02-20T11:32:11.793240",
           "prix": 9050
+        }
+      ]
+    },
+    "clou-bas|rare": {
+      "nom": "clou-bas",
+      "rarete": "rare",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T11:32:19.182967",
+          "prix": 8998
         }
       ]
     }
