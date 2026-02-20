@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wakfu HDV — Prix</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #1a1a2e;
+      color: #e0e0e0;
+      font-family: 'Consolas', 'Courier New', monospace;
+      padding: 24px;
+    }
+
+    h1 {
+      color: #00d4ff;
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+    }
+
+    #last-updated {
+      font-size: 0.8rem;
+      color: #888;
+      margin-bottom: 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.9rem;
+    }
+
+    thead th {
+      background: #0f3460;
+      color: #00d4ff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+    }
+
+    tbody tr {
+      border-bottom: 1px solid #2a2a4a;
+      transition: background 0.15s;
+    }
+
+    tbody tr:hover { background: #16213e; }
+
+    td {
+      padding: 9px 14px;
+    }
+
+    .prix    { color: #ffd700; font-weight: bold; }
+    .rarete  { font-size: 0.78rem; padding: 2px 7px; border-radius: 4px; }
+    .commun    { background:#555;    color:#fff; }
+    .rare      { background:#1a5c9e; color:#fff; }
+    .mythique  { background:#7a1c9e; color:#fff; }
+    .legendaire{ background:#b8860b; color:#fff; }
+    .souvenir  { background:#9e1a1a; color:#fff; }
+    .epique    { background:#1a7a3a; color:#fff; }
+    .relique   { background:#9e4a1a; color:#fff; }
+
+    .mini { color:#888; font-size:0.8rem; }
+
+    #refresh-btn {
+      margin-bottom: 20px;
+      padding: 7px 18px;
+      background: #0f3460;
+      color: #00d4ff;
+      border: 1px solid #00d4ff;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.85rem;
+    }
+    #refresh-btn:hover { background: #1a4a80; }
+
+    #empty-msg {
+      color: #888;
+      margin-top: 40px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Wakfu HDV — Prix des items</h1>
+  <div id="last-updated">Chargement…</div>
+
+  <button id="refresh-btn" onclick="loadData()">↻ Actualiser</button>
+
+  <table id="table" style="display:none">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Rareté</th>
+        <th>Dernier prix</th>
+        <th>Min / Max</th>
+        <th>Mesures</th>
+        <th>Dernière MAJ</th>
+      </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+  </table>
+
+  <p id="empty-msg" style="display:none">Aucune donnée pour le moment.</p>
+
+  <script>
+    const DATA_URL = "data/prices.json";
+
+    function formatDate(iso) {
+      if (!iso) return "—";
+      const d = new Date(iso);
+      return d.toLocaleString("fr-FR", { dateStyle: "short", timeStyle: "short" });
+    }
+
+    function formatPrix(n) {
+      return n.toLocaleString("fr-FR") + " k";
+    }
+
+    async function loadData() {
+      const res  = await fetch(DATA_URL + "?t=" + Date.now());
+      const data = await res.json();
+
+      document.getElementById("last-updated").textContent =
+        "Dernière mise à jour : " + formatDate(data.last_updated);
+
+      const items = Object.entries(data.items);
+      const tbody = document.getElementById("tbody");
+      tbody.innerHTML = "";
+
+      if (items.length === 0) {
+        document.getElementById("table").style.display = "none";
+        document.getElementById("empty-msg").style.display = "block";
+        return;
+      }
+
+      document.getElementById("table").style.display = "table";
+      document.getElementById("empty-msg").style.display = "none";
+
+      for (const [nom, info] of items) {
+        const hist   = info.historique || [];
+        const prices = hist.map(h => h.prix);
+        const last   = hist.at(-1);
+        const min    = prices.length ? Math.min(...prices) : null;
+        const max    = prices.length ? Math.max(...prices) : null;
+
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+          <td>${nom}</td>
+          <td><span class="rarete ${info.rarete}">${info.rarete}</span></td>
+          <td class="prix">${last ? formatPrix(last.prix) : "—"}</td>
+          <td class="mini">${min !== null ? formatPrix(min) + " / " + formatPrix(max) : "—"}</td>
+          <td class="mini">${prices.length}</td>
+          <td class="mini">${last ? formatDate(last.timestamp) : "—"}</td>
+        `;
+        tbody.appendChild(tr);
+      }
+    }
+
+    loadData();
+    // Auto-refresh toutes les 60 secondes
+    setInterval(loadData, 60_000);
+  </script>
+</body>
+</html>
