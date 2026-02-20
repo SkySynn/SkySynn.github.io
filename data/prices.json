@@ -157,7 +157,17 @@
           "prix": 819
         }
       ]
+    },
+    "essence infernale|commun": {
+      "nom": "essence infernale",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T14:27:38Z",
+          "prix": 70
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T14:27:32Z"
+  "last_updated": "2026-02-20T14:27:38Z"
 }
