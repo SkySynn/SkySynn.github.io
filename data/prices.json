@@ -37,7 +37,17 @@
           "prix": 195
         }
       ]
+    },
+    "chardon couronné|commun": {
+      "nom": "chardon couronné",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T14:03:34Z",
+          "prix": 3
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T14:03:25Z"
+  "last_updated": "2026-02-20T14:03:34Z"
 }
