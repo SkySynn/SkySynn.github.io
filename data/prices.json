@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-20T11:32:04.740597",
+  "last_updated": "2026-02-20T11:32:11.793271",
   "items": {
     "Plastron D'enter|mythique": {
       "nom": "Plastron D'enter",
@@ -58,6 +58,16 @@
         {
           "timestamp": "2026-02-20T11:32:04.740571",
           "prix": 9296
+        }
+      ]
+    },
+    "boolet géant|rare": {
+      "nom": "boolet géant",
+      "rarete": "rare",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T11:32:11.793240",
+          "prix": 9050
         }
       ]
     }
