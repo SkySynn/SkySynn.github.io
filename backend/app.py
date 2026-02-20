@@ -7,7 +7,6 @@ Variables d'environnement requises (à définir sur Render) :
   GITHUB_REPO       ex: "SkySynn/SkySynn.github.io"
   GITHUB_BRANCH     (optionnel, défaut: "main")
   GITHUB_DATA_PATH  (optionnel, défaut: "data/prices.json")
-  API_KEY           Clé secrète partagée avec le GUI
 """
 
 import base64
@@ -35,7 +34,6 @@ GITHUB_TOKEN     = os.environ.get("GITHUB_TOKEN", "")
 GITHUB_REPO      = os.environ.get("GITHUB_REPO", "")
 GITHUB_BRANCH    = os.environ.get("GITHUB_BRANCH", "main")
 GITHUB_DATA_PATH = os.environ.get("GITHUB_DATA_PATH", "data/prices.json")
-API_KEY          = os.environ.get("API_KEY", "")
 
 _API_URL = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_DATA_PATH}"
 _HEADERS = {
@@ -79,10 +77,6 @@ def _push_data(data, sha, message):
 @app.route("/api/prix", methods=["POST"])
 @limiter.limit("10 per minute")
 def recevoir_prix():
-    # Vérification de la clé API
-    if API_KEY and request.headers.get("X-API-Key") != API_KEY:
-        return jsonify({"error": "Non autorisé"}), 401
-
     body = request.get_json(silent=True)
     if not body:
         return jsonify({"error": "JSON invalide"}), 400
