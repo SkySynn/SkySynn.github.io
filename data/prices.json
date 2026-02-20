@@ -1,2 +1,15 @@
 {
+  "items": {
+    "plastron d'enter|mythique": {
+      "nom": "plastron d'enter",
+      "rarete": "mythique",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T13:48:39Z",
+          "prix": 1
+        }
+      ]
+    }
+  },
+  "last_updated": "2026-02-20T13:48:39Z"
 }
