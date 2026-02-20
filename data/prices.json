@@ -107,7 +107,17 @@
           "prix": 2887
         }
       ]
+    },
+    "mouchards de démentia|rare": {
+      "nom": "mouchards de démentia",
+      "rarete": "rare",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T14:27:01Z",
+          "prix": 1492
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T14:26:53Z"
+  "last_updated": "2026-02-20T14:27:01Z"
 }
