@@ -1,1 +1,15 @@
-{"last_updated":"","items":{}}
+{
+  "last_updated": "2026-02-20T11:25:21.008697",
+  "items": {
+    "Plastron D'enter|mythique": {
+      "nom": "Plastron D'enter",
+      "rarete": "mythique",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T11:25:21.008663",
+          "prix": 34999
+        }
+      ]
+    }
+  }
+}
