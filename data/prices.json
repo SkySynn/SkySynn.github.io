@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-02-20T11:31:44.041781",
+  "last_updated": "2026-02-20T11:31:57.632602",
   "items": {
     "Plastron D'enter|mythique": {
       "nom": "Plastron D'enter",
@@ -38,6 +38,16 @@
         {
           "timestamp": "2026-02-20T11:31:44.041762",
           "prix": 11500
+        }
+      ]
+    },
+    "poisséluné|rare": {
+      "nom": "poisséluné",
+      "rarete": "rare",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T11:31:57.632568",
+          "prix": 9900
         }
       ]
     }
