@@ -292,9 +292,82 @@
       100% { box-shadow: 0 0 0 0   rgba(0,230,118,0);  }
     }
 
+    /* ── TOGGLE VIEW ── */
+    .view-toggle {
+      display: flex;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .view-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 7px 14px;
+      background: transparent;
+      border: none;
+      color: var(--muted);
+      font-family: inherit;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .view-btn.active {
+      background: var(--accent);
+      color: #000;
+      font-weight: 600;
+    }
+    .view-btn:not(.active):hover { background: rgba(255,255,255,.05); color: var(--text); }
+
+    /* ── LIST VIEW ── */
+    #list-view { display: none; }
+
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    .data-table thead th {
+      background: #0a0a1f;
+      color: var(--muted);
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      white-space: nowrap;
+    }
+
+    .data-table thead th.sortable { cursor: pointer; user-select: none; }
+    .data-table thead th.sortable:hover { color: var(--accent); }
+    .data-table thead th.sort-asc::after  { content: " ▲"; color: var(--accent); }
+    .data-table thead th.sort-desc::after { content: " ▼"; color: var(--accent); }
+
+    .data-table tbody tr {
+      border-bottom: 1px solid var(--border);
+      transition: background 0.1s;
+      animation: fadeIn 0.3s ease both;
+    }
+    .data-table tbody tr:hover { background: rgba(255,255,255,.03); }
+
+    .data-table td { padding: 10px 14px; vertical-align: middle; }
+
+    .td-prix  { color: var(--gold); font-weight: 700; font-size: 0.95rem; }
+    .td-muted { color: var(--muted); font-size: 0.8rem; }
+    .td-trend { font-size: 0.78rem; font-weight: 600; }
+    .td-trend.up   { color: var(--green); }
+    .td-trend.down { color: var(--red); }
+    .td-trend.flat { color: var(--muted); }
+
     @media (max-width: 600px) {
       header, main { padding: 20px; }
       .stats-bar { flex-wrap: wrap; }
+      .data-table .hide-mobile { display: none; }
     }
   </style>
 </head>
@@ -309,6 +382,16 @@
     </div>
   </div>
   <div class="header-right">
+    <div class="view-toggle">
+      <button class="view-btn active" id="btn-cards" onclick="setView('cards')" title="Vue cartes">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        Cartes
+      </button>
+      <button class="view-btn" id="btn-list" onclick="setView('list')" title="Vue liste">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><circle cx="3" cy="6" r="1" fill="currentColor"/><circle cx="3" cy="12" r="1" fill="currentColor"/><circle cx="3" cy="18" r="1" fill="currentColor"/></svg>
+        Liste
+      </button>
+    </div>
     <div class="live-dot" title="Auto-refresh toutes les 60s"></div>
     <button id="refresh-btn" onclick="loadData()">
       <svg id="refresh-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -341,7 +424,32 @@
 
 <main>
   <div class="section-title">Items suivis</div>
-  <div class="grid" id="grid"></div>
+
+  <!-- Vue cartes -->
+  <div id="cards-view">
+    <div class="grid" id="grid"></div>
+  </div>
+
+  <!-- Vue liste -->
+  <div id="list-view">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="sortable" data-col="nom">Item</th>
+          <th>Rareté</th>
+          <th class="sortable" data-col="prix">Dernier prix</th>
+          <th>Tendance</th>
+          <th class="hide-mobile sortable" data-col="min">Min</th>
+          <th class="hide-mobile sortable" data-col="max">Max</th>
+          <th class="hide-mobile sortable" data-col="moy">Moy</th>
+          <th class="hide-mobile sortable" data-col="count">Scans</th>
+          <th class="hide-mobile">Dernière MAJ</th>
+        </tr>
+      </thead>
+      <tbody id="list-tbody"></tbody>
+    </table>
+  </div>
+
   <div class="empty" id="empty" style="display:none">
     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
       <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
@@ -353,6 +461,37 @@
 
 <script>
   const DATA_URL = "data/prices.json";
+
+  // ── Toggle vue cartes / liste ──────────────────────────────────────
+  let currentView = localStorage.getItem("view") || "cards";
+
+  function setView(v) {
+    currentView = v;
+    localStorage.setItem("view", v);
+    document.getElementById("cards-view").style.display = v === "cards" ? "block" : "none";
+    document.getElementById("list-view").style.display  = v === "list"  ? "block" : "none";
+    document.getElementById("btn-cards").classList.toggle("active", v === "cards");
+    document.getElementById("btn-list").classList.toggle("active",  v === "list");
+  }
+
+  setView(currentView);
+
+  // ── Tri tableau ────────────────────────────────────────────────────
+  let _sortCol = null, _sortDir = 1;
+  let _tableData = [];
+
+  document.querySelector(".data-table thead").addEventListener("click", e => {
+    const th = e.target.closest("th[data-col]");
+    if (!th) return;
+    const col = th.dataset.col;
+    if (_sortCol === col) _sortDir *= -1;
+    else { _sortCol = col; _sortDir = 1; }
+    document.querySelectorAll("th[data-col]").forEach(t => {
+      t.classList.remove("sort-asc", "sort-desc");
+    });
+    th.classList.add(_sortDir === 1 ? "sort-asc" : "sort-desc");
+    renderList();
+  });
 
   function fmt(n) {
     if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + "M";
@@ -518,17 +657,35 @@
       }
       document.getElementById("empty").style.display = "none";
 
+      // Vue cartes
       const pending = [];
       items.forEach(([, info], i) => {
         const { card, id, hist } = buildCard(info.nom ?? info, info, i * 60);
         grid.appendChild(card);
         pending.push({ id, hist });
       });
-
-      // Dessiner les graphes après insertion dans le DOM
       requestAnimationFrame(() => {
         pending.forEach(({ id, hist }) => drawSparkline(id, hist));
       });
+
+      // Vue liste
+      _tableData = items.map(([, info]) => {
+        const hist   = info.historique || [];
+        const prices = hist.map(h => h.prix);
+        const last   = hist.at(-1);
+        return {
+          nom:    info.nom ?? "?",
+          rarete: info.rarete,
+          prix:   last?.prix ?? null,
+          min:    prices.length ? Math.min(...prices) : null,
+          max:    prices.length ? Math.max(...prices) : null,
+          moy:    prices.length ? Math.round(prices.reduce((a,b)=>a+b,0)/prices.length) : null,
+          count:  prices.length,
+          date:   last?.timestamp ?? null,
+          hist,
+        };
+      });
+      renderList();
 
     } catch(e) {
       console.error(e);
@@ -536,6 +693,40 @@
     } finally {
       btn.classList.remove("spinning");
     }
+  }
+
+  function renderList() {
+    const rows = [..._tableData];
+    if (_sortCol) {
+      rows.sort((a, b) => {
+        const va = a[_sortCol] ?? -Infinity;
+        const vb = b[_sortCol] ?? -Infinity;
+        return (va < vb ? -1 : va > vb ? 1 : 0) * _sortDir;
+      });
+    }
+
+    const tbody = document.getElementById("list-tbody");
+    tbody.innerHTML = "";
+
+    rows.forEach((r, i) => {
+      const trend = trendInfo(r.hist);
+      const trendIcon = trend.cls === "up" ? "▲" : trend.cls === "down" ? "▼" : "—";
+
+      const tr = document.createElement("tr");
+      tr.style.animationDelay = (i * 30) + "ms";
+      tr.innerHTML = `
+        <td><strong>${r.nom}</strong></td>
+        <td><span class="badge ${r.rarete}">${r.rarete}</span></td>
+        <td class="td-prix">${r.prix !== null ? fmt(r.prix) + " k" : "—"}</td>
+        <td class="td-trend ${trend.cls}">${trendIcon} ${trend.label}</td>
+        <td class="td-muted hide-mobile">${r.min !== null ? fmt(r.min)+" k" : "—"}</td>
+        <td class="td-muted hide-mobile">${r.max !== null ? fmt(r.max)+" k" : "—"}</td>
+        <td class="td-muted hide-mobile">${r.moy !== null ? fmt(r.moy)+" k" : "—"}</td>
+        <td class="td-muted hide-mobile">${r.count}</td>
+        <td class="td-muted hide-mobile">${fmtDate(r.date)}</td>
+      `;
+      tbody.appendChild(tr);
+    });
   }
 
   loadData();
