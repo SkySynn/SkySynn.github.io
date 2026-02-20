@@ -12,7 +12,7 @@ Variables d'environnement requises (à définir sur Render) :
 import base64
 import json
 import os
-from datetime import datetime
+from datetime import datetime, timezone
 
 import requests
 from flask import Flask, jsonify, request
@@ -101,10 +101,10 @@ def recevoir_prix():
             data["items"][key] = {"nom": nom, "rarete": rarete, "historique": []}
 
         data["items"][key]["historique"].append({
-            "timestamp": datetime.now().isoformat(),
+            "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "prix":      prix,
         })
-        data["last_updated"] = datetime.now().isoformat()
+        data["last_updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
 
         _push_data(data, sha, f"prix: {nom} [{rarete}] → {prix} kamas")
         return jsonify({"ok": True})
