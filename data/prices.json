@@ -9,7 +9,17 @@
           "prix": 1
         }
       ]
+    },
+    "plastron d'enter|legendaire": {
+      "nom": "plastron d'enter",
+      "rarete": "legendaire",
+      "historique": [
+        {
+          "timestamp": "2026-02-20T13:48:47Z",
+          "prix": 144444
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-20T13:48:39Z"
+  "last_updated": "2026-02-20T13:48:47Z"
 }
