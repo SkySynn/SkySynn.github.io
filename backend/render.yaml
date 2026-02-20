@@ -3,15 +3,13 @@ services:
     name: wakfu-hdv-api
     runtime: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn app:app
+    startCommand: gunicorn app:app --bind 0.0.0.0:$PORT
     envVars:
       - key: GITHUB_TOKEN
-        sync: false        # à saisir manuellement sur Render
+        sync: false
       - key: GITHUB_REPO
         value: SkySynn/SkySynn.github.io
       - key: GITHUB_BRANCH
         value: main
       - key: GITHUB_DATA_PATH
         value: data/prices.json
-      - key: API_KEY
-        sync: false        # à saisir manuellement sur Render
