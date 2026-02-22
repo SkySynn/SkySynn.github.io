@@ -325,7 +325,17 @@
           "prix": 720
         }
       ]
+    },
+    "fil grossier|commun": {
+      "nom": "fil grossier",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:35:02Z",
+          "prix": 805
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T13:42:45Z"
+  "last_updated": "2026-02-22T15:35:02Z"
 }
