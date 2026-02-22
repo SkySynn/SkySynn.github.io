@@ -353,7 +353,17 @@
           "prix": 796
         }
       ]
+    },
+    "feuille de menthe|commun": {
+      "nom": "feuille de menthe",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:35:33Z",
+          "prix": 92
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:35:27Z"
+  "last_updated": "2026-02-22T15:35:33Z"
 }
