@@ -713,7 +713,17 @@
           "prix": 318
         }
       ]
+    },
+    "galinsoga démoniaque|commun": {
+      "nom": "galinsoga démoniaque",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:40:29Z",
+          "prix": 118
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:40:23Z"
+  "last_updated": "2026-02-22T15:40:29Z"
 }
