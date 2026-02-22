@@ -473,7 +473,17 @@
           "prix": 231
         }
       ]
+    },
+    "pied de boufton|commun": {
+      "nom": "pied de boufton",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:37:06Z",
+          "prix": 134
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:36:58Z"
+  "last_updated": "2026-02-22T15:37:06Z"
 }
