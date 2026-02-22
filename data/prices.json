@@ -453,7 +453,17 @@
           "prix": 173
         }
       ]
+    },
+    "baie de gargousier|commun": {
+      "nom": "baie de gargousier",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:36:48Z",
+          "prix": 38
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:36:40Z"
+  "last_updated": "2026-02-22T15:36:48Z"
 }
