@@ -553,7 +553,17 @@
           "prix": 227
         }
       ]
+    },
+    "fil raffiné|commun": {
+      "nom": "fil raffiné",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:38:09Z",
+          "prix": 616
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:37:59Z"
+  "last_updated": "2026-02-22T15:38:09Z"
 }
