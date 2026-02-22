@@ -285,7 +285,17 @@
           "prix": 9000
         }
       ]
+    },
+    "patte de shin larve|mythique": {
+      "nom": "patte de shin larve",
+      "rarete": "mythique",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T13:42:21Z",
+          "prix": 100
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T13:42:13Z"
+  "last_updated": "2026-02-22T13:42:21Z"
 }
