@@ -61,6 +61,32 @@
           "quantite": 45
         }
       ]
+    },
+    "casque shin larve imperial|mythique": {
+      "nom": "casque shin larve imperial",
+      "rarete": "mythique",
+      "composants": [
+        {
+          "nom": "patte de shin larve",
+          "rarete": "mythique",
+          "quantite": 1
+        },
+        {
+          "nom": "peau de nutellarve",
+          "rarete": "rare",
+          "quantite": 1
+        },
+        {
+          "nom": "sioupere-glou grossière",
+          "rarete": "commun",
+          "quantite": 12
+        },
+        {
+          "nom": "fibre grossière",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
     }
   }
 }
