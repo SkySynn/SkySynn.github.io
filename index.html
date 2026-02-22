@@ -69,6 +69,7 @@
       font-weight: 700;
       background: linear-gradient(90deg, var(--accent), #a78bfa);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -85,7 +86,7 @@
       flex-wrap: wrap;
     }
 
-    /* AUTH ZONE */
+    /* AUTH */
     .auth-zone {
       display: flex;
       align-items: center;
@@ -99,13 +100,12 @@
     }
 
     .user-name {
-      font-size: 0.82rem;
+      font-size: .82rem;
       font-weight: 600;
-      color: var(--text);
     }
 
     .role-badge {
-      font-size: 0.65rem;
+      font-size: .65rem;
       font-weight: 700;
       padding: 2px 8px;
       border-radius: 20px;
@@ -138,7 +138,7 @@
       border-radius: 8px;
       cursor: pointer;
       font-family: inherit;
-      font-size: 0.8rem;
+      font-size: .8rem;
       font-weight: 500;
       transition: all .2s;
       border: none;
@@ -167,7 +167,7 @@
       background: transparent;
       border: 1px solid var(--red);
       color: var(--red);
-      font-size: 0.75rem;
+      font-size: .75rem;
       padding: 5px 10px;
     }
 
@@ -175,7 +175,7 @@
       background: rgba(255, 82, 82, .1);
     }
 
-    /* TOGGLE VIEW */
+    /* VIEW TOGGLE */
     .view-toggle {
       display: flex;
       background: var(--surface);
@@ -193,7 +193,7 @@
       border: none;
       color: var(--muted);
       font-family: inherit;
-      font-size: 0.8rem;
+      font-size: .8rem;
       cursor: pointer;
       transition: all .15s;
     }
@@ -209,7 +209,7 @@
       color: var(--text);
     }
 
-    /* LIVE DOT */
+    /* LIVE / REFRESH */
     .live-dot {
       width: 8px;
       height: 8px;
@@ -217,6 +217,20 @@
       background: var(--green);
       box-shadow: 0 0 0 0 rgba(0, 230, 118, .5);
       animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 230, 118, .5);
+      }
+
+      70% {
+        box-shadow: 0 0 0 8px rgba(0, 230, 118, 0);
+      }
+
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 230, 118, 0);
+      }
     }
 
     #refresh-btn {
@@ -230,7 +244,7 @@
       border-radius: 8px;
       cursor: pointer;
       font-family: inherit;
-      font-size: 0.8rem;
+      font-size: .8rem;
       font-weight: 500;
       transition: all .2s;
     }
@@ -249,18 +263,9 @@
       }
     }
 
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 0 0 0 rgba(0, 230, 118, .5);
-      }
-
-      70% {
-        box-shadow: 0 0 0 8px rgba(0, 230, 118, 0);
-      }
-
-      100% {
-        box-shadow: 0 0 0 0 rgba(0, 230, 118, 0);
-      }
+    #last-updated {
+      font-size: .75rem;
+      color: var(--muted);
     }
 
     /* STATS BAR */
@@ -292,7 +297,7 @@
       margin-top: 2px;
     }
 
-    /* TAB BAR */
+    /* TABS */
     .tab-bar {
       display: flex;
       background: var(--surface);
@@ -327,7 +332,7 @@
       color: var(--text);
     }
 
-    /* MAIN */
+    /* MAIN / GRID */
     main {
       padding: 32px 40px;
       max-width: 1400px;
@@ -652,14 +657,9 @@
       color: var(--muted);
     }
 
-    /* LOCKED ROW */
+    /* LOCKED */
     .locked-row td {
       opacity: .5;
-    }
-
-    .lock-icon {
-      font-size: 1rem;
-      margin-right: 6px;
     }
 
     .premium-banner {
@@ -670,7 +670,6 @@
       padding: 16px 24px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 16px;
     }
 
@@ -685,7 +684,7 @@
       margin-bottom: 4px;
     }
 
-    /* ADMIN TABLE */
+    /* ADMIN */
     .admin-role-sel {
       background: var(--surface);
       border: 1px solid var(--border);
@@ -728,6 +727,7 @@
       width: 100%;
       max-width: 420px;
       animation: fadeIn .3s ease;
+      position: relative;
     }
 
     .modal h2 {
@@ -736,6 +736,7 @@
       margin-bottom: 6px;
       background: linear-gradient(90deg, var(--accent), #a78bfa);
       -webkit-background-clip: text;
+      background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
@@ -829,8 +830,8 @@
 
     .modal-close {
       position: absolute;
-      top: 16px;
-      right: 20px;
+      top: 14px;
+      right: 18px;
       background: none;
       border: none;
       color: var(--muted);
@@ -841,15 +842,6 @@
 
     .modal-close:hover {
       color: var(--text);
-    }
-
-    .modal-wrap {
-      position: relative;
-    }
-
-    #last-updated {
-      font-size: .75rem;
-      color: var(--muted);
     }
 
     @media(max-width:600px) {
@@ -909,21 +901,18 @@
       </div>
       <div class="live-dot" title="Auto-refresh toutes les 60s"></div>
       <button id="refresh-btn" onclick="loadData()">
-        <svg id="refresh-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-          stroke-width="2.5">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
           <polyline points="23 4 23 10 17 10" />
           <path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10" />
         </svg>
         Actualiser
       </button>
-      <!-- Auth zone -->
       <div class="auth-zone" id="auth-zone">
         <button class="btn btn-outline" onclick="openModal()">Connexion</button>
       </div>
     </div>
   </header>
 
-  <!-- Stats bar -->
   <div class="stats-bar" id="stats-bar" style="display:none">
     <div class="stat">
       <div class="stat-value" id="s-items">—</div>
@@ -943,8 +932,7 @@
     </div>
   </div>
 
-  <!-- Tab bar -->
-  <div class="tab-bar" id="tab-bar">
+  <div class="tab-bar">
     <button class="tab-btn active" id="tabbtn-prix" onclick="setTab('prix')">
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
@@ -971,7 +959,7 @@
 
   <main>
 
-    <!-- ONGLET PRIX -->
+    <!-- PRIX -->
     <div id="tab-prix">
       <div class="section-title">Items suivis</div>
       <div id="cards-view">
@@ -1002,11 +990,11 @@
           <line x1="12" y1="16" x2="12.01" y2="16" />
         </svg>
         <h2>Aucune donnée</h2>
-        <p>Lance le scanner Python pour commencer à collecter des prix.</p>
+        <p>Lance le scanner Python pour commencer.</p>
       </div>
     </div>
 
-    <!-- ONGLET CRAFTS -->
+    <!-- CRAFTS -->
     <div id="tab-crafts" style="display:none">
       <div class="section-title">Rentabilité des crafts</div>
       <table class="data-table" id="crafts-table">
@@ -1036,7 +1024,7 @@
       </div>
     </div>
 
-    <!-- ONGLET ADMIN -->
+    <!-- ADMIN -->
     <div id="tab-admin" style="display:none">
       <div class="section-title">Gestion des comptes</div>
       <table class="data-table" id="admin-table">
@@ -1060,48 +1048,44 @@
   </main>
 
   <!-- MODAL AUTH -->
-  <div class="modal-overlay" id="modal-overlay" onclick="closeModal(event)">
-    <div class="modal-wrap">
-      <div class="modal">
-        <button class="modal-close" onclick="closeModalBtn()">×</button>
-        <h2>Bienvenue</h2>
-        <p class="sub">Connecte-toi pour accéder à plus de crafts</p>
-        <div class="modal-tabs">
-          <button class="mtab active" id="mtab-login" onclick="switchMTab('login')">Connexion</button>
-          <button class="mtab" id="mtab-register" onclick="switchMTab('register')">Inscription</button>
-        </div>
-        <div id="modal-error" class="modal-error"></div>
+  <div class="modal-overlay" id="modal-overlay" onclick="closeModalOverlay(event)">
+    <div class="modal">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <h2>Bienvenue</h2>
+      <p class="sub">Connecte-toi pour accéder à plus de crafts</p>
+      <div class="modal-tabs">
+        <button class="mtab active" id="mtab-login" onclick="switchMTab('login')">Connexion</button>
+        <button class="mtab" id="mtab-register" onclick="switchMTab('register')">Inscription</button>
+      </div>
+      <div id="modal-error" class="modal-error"></div>
 
-        <!-- LOGIN -->
-        <div id="form-login">
-          <div class="form-group"><label>Email</label><input type="email" id="l-email" placeholder="ton@email.com"
-              autocomplete="email" /></div>
-          <div class="form-group"><label>Mot de passe</label><input type="password" id="l-pass" placeholder="••••••••"
-              autocomplete="current-password" /></div>
-          <button class="btn btn-solid btn-full" onclick="doLogin()">Se connecter</button>
-        </div>
+      <div id="form-login">
+        <div class="form-group"><label>Email</label><input type="email" id="l-email" placeholder="ton@email.com"
+            autocomplete="email" /></div>
+        <div class="form-group"><label>Mot de passe</label><input type="password" id="l-pass" placeholder="••••••••"
+            autocomplete="current-password" /></div>
+        <button class="btn btn-solid btn-full" onclick="doLogin()">Se connecter</button>
+      </div>
 
-        <!-- REGISTER -->
-        <div id="form-register" style="display:none">
-          <div class="form-group"><label>Nom d'utilisateur</label><input type="text" id="r-user" placeholder="TonPseudo"
-              autocomplete="username" /></div>
-          <div class="form-group"><label>Email</label><input type="email" id="r-email" placeholder="ton@email.com"
-              autocomplete="email" /></div>
-          <div class="form-group"><label>Mot de passe</label><input type="password" id="r-pass"
-              placeholder="6 caractères minimum" autocomplete="new-password" /></div>
-          <button class="btn btn-solid btn-full" onclick="doRegister()">Créer mon compte</button>
-        </div>
+      <div id="form-register" style="display:none">
+        <div class="form-group"><label>Nom d'utilisateur</label><input type="text" id="r-user" placeholder="TonPseudo"
+            autocomplete="username" /></div>
+        <div class="form-group"><label>Email</label><input type="email" id="r-email" placeholder="ton@email.com"
+            autocomplete="email" /></div>
+        <div class="form-group"><label>Mot de passe</label><input type="password" id="r-pass"
+            placeholder="6 caractères minimum" autocomplete="new-password" /></div>
+        <button class="btn btn-solid btn-full" onclick="doRegister()">Créer mon compte</button>
       </div>
     </div>
   </div>
 
   <script>
-    // ── Config ─────────────────────────────────────────────────────────────────
-    const API_BASE = "https://wakfu-hdv-api.onrender.com"; // ← adapte si ton URL Render est différente
+    // ── Config ──────────────────────────────────────────────────────────────────
+    const API_BASE = "https://wakfu-hdv-api.onrender.com";
     const DATA_URL = "data/prices.json";
     const CRAFTS_URL = "data/crafts.json";
 
-    // ── Auth state ─────────────────────────────────────────────────────────────
+    // ── Auth state ──────────────────────────────────────────────────────────────
     let _token = localStorage.getItem("whdv_token") || null;
     let _user = JSON.parse(localStorage.getItem("whdv_user") || "null");
     let _pricesData = null;
@@ -1142,10 +1126,11 @@
       }
     }
 
-    // ── Modal ──────────────────────────────────────────────────────────────────
+    // ── Modal ───────────────────────────────────────────────────────────────────
     function openModal() { document.getElementById("modal-overlay").classList.add("open"); }
-    function closeModalBtn() { document.getElementById("modal-overlay").classList.remove("open"); }
-    function closeModal(e) { if (e.target === document.getElementById("modal-overlay")) closeModalBtn(); }
+    function closeModal() { document.getElementById("modal-overlay").classList.remove("open"); setModalError(""); }
+    function closeModalOverlay(e) { if (e.target === document.getElementById("modal-overlay")) closeModal(); }
+
     function switchMTab(t) {
       document.getElementById("form-login").style.display = t === "login" ? "block" : "none";
       document.getElementById("form-register").style.display = t === "register" ? "block" : "none";
@@ -1153,54 +1138,61 @@
       document.getElementById("mtab-register").classList.toggle("active", t === "register");
       setModalError("");
     }
+
     function setModalError(msg) {
       const el = document.getElementById("modal-error");
       el.textContent = msg;
       el.classList.toggle("show", !!msg);
     }
 
+    document.addEventListener("keydown", e => {
+      if (e.key !== "Enter") return;
+      if (!document.getElementById("modal-overlay").classList.contains("open")) return;
+      const isLogin = document.getElementById("form-login").style.display !== "none";
+      isLogin ? doLogin() : doRegister();
+    });
+
+    // ── API helper ──────────────────────────────────────────────────────────────
     async function apiCall(path, method = "GET", body = null) {
       const headers = { "Content-Type": "application/json" };
       if (_token) headers["Authorization"] = "Bearer " + _token;
-      const res = await fetch(API_BASE + path, { method, headers, body: body ? JSON.stringify(body) : undefined });
+      const res = await fetch(API_BASE + path, {
+        method,
+        headers,
+        body: body ? JSON.stringify(body) : undefined,
+      });
       return res.json();
     }
 
+    // ── Auth actions ────────────────────────────────────────────────────────────
     async function doLogin() {
       const email = document.getElementById("l-email").value.trim();
       const pass = document.getElementById("l-pass").value;
+      if (!email || !pass) { setModalError("Remplis tous les champs"); return; }
       try {
         const data = await apiCall("/api/auth/login", "POST", { email, password: pass });
         if (data.error) { setModalError(data.error); return; }
         saveAuth(data.token, data.user);
-        closeModalBtn();
+        closeModal();
         loadCraftsFromAPI();
-      } catch (e) { setModalError("Erreur réseau"); }
+      } catch (e) { setModalError("Erreur réseau — le backend est peut-être en démarrage (30s)"); }
     }
 
     async function doRegister() {
       const username = document.getElementById("r-user").value.trim();
       const email = document.getElementById("r-email").value.trim();
       const pass = document.getElementById("r-pass").value;
+      if (!username || !email || !pass) { setModalError("Remplis tous les champs"); return; }
       try {
         const data = await apiCall("/api/auth/register", "POST", { username, email, password: pass });
         if (data.error) { setModalError(data.error); return; }
         saveAuth(data.token, data.user);
-        closeModalBtn();
+        closeModal();
         loadCraftsFromAPI();
-      } catch (e) { setModalError("Erreur réseau"); }
+      } catch (e) { setModalError("Erreur réseau — le backend est peut-être en démarrage (30s)"); }
     }
 
-    // Enter key pour login/register
-    document.addEventListener("keydown", e => {
-      if (e.key !== "Enter") return;
-      const overlay = document.getElementById("modal-overlay");
-      if (!overlay.classList.contains("open")) return;
-      const isLogin = document.getElementById("form-login").style.display !== "none";
-      isLogin ? doLogin() : doRegister();
-    });
-
-    // ── Tabs ───────────────────────────────────────────────────────────────────
+    // ── Tabs ────────────────────────────────────────────────────────────────────
     let _currentTab = localStorage.getItem("tab") || "prix";
 
     function setTab(tab) {
@@ -1217,8 +1209,9 @@
 
     setTab(_currentTab);
 
-    // ── View toggle ────────────────────────────────────────────────────────────
+    // ── View toggle ─────────────────────────────────────────────────────────────
     let currentView = localStorage.getItem("view") || "cards";
+
     function setView(v) {
       currentView = v; localStorage.setItem("view", v);
       document.getElementById("cards-view").style.display = v === "cards" ? "block" : "none";
@@ -1226,9 +1219,10 @@
       document.getElementById("btn-cards").classList.toggle("active", v === "cards");
       document.getElementById("btn-list").classList.toggle("active", v === "list");
     }
+
     setView(currentView);
 
-    // ── Sort prix ──────────────────────────────────────────────────────────────
+    // ── Sort prix ───────────────────────────────────────────────────────────────
     let _sortCol = null, _sortDir = 1, _tableData = [];
     document.querySelector(".data-table thead").addEventListener("click", e => {
       const th = e.target.closest("th[data-col]"); if (!th) return;
@@ -1239,7 +1233,7 @@
       renderList();
     });
 
-    // ── Sort crafts ────────────────────────────────────────────────────────────
+    // ── Sort crafts ─────────────────────────────────────────────────────────────
     let _craftSortCol = null, _craftSortDir = 1, _craftTableData = [];
     ["craft-th-cout", "craft-th-hdv", "craft-th-bk", "craft-th-bpct"].forEach(id => {
       document.getElementById(id).addEventListener("click", function () {
@@ -1251,7 +1245,7 @@
       });
     });
 
-    // ── Helpers ────────────────────────────────────────────────────────────────
+    // ── Helpers ─────────────────────────────────────────────────────────────────
     function fmt(n) {
       if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + "M";
       if (n >= 1_000) return (n / 1_000).toFixed(n % 1000 === 0 ? 0 : 1) + "k";
@@ -1268,7 +1262,7 @@
       return { cls: "flat", label: "Stable", pct: 0 };
     }
 
-    // ── Sparklines ─────────────────────────────────────────────────────────────
+    // ── Sparklines ──────────────────────────────────────────────────────────────
     const charts = {};
     function buildCard(nom, info, delay) {
       const hist = info.historique || [], prices = hist.map(h => h.prix);
@@ -1305,8 +1299,10 @@
         type: "line",
         data: {
           labels, datasets: [{
-            data, borderColor: color, borderWidth: 2, pointRadius: 0, pointHoverRadius: 4, pointHoverBackgroundColor: color, fill: true,
-            backgroundColor: ctx => { const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 56); g.addColorStop(0, color + "33"); g.addColorStop(1, color + "00"); return g; }, tension: 0.4
+            data, borderColor: color, borderWidth: 2, pointRadius: 0, pointHoverRadius: 4,
+            pointHoverBackgroundColor: color, fill: true,
+            backgroundColor: ctx => { const g = ctx.chart.ctx.createLinearGradient(0, 0, 0, 56); g.addColorStop(0, color + "33"); g.addColorStop(1, color + "00"); return g; },
+            tension: 0.4
           }]
         },
         options: {
@@ -1317,7 +1313,7 @@
       });
     }
 
-    // ── Render Prix ────────────────────────────────────────────────────────────
+    // ── Render Prix ─────────────────────────────────────────────────────────────
     function renderPrix(data) {
       const items = Object.entries(data.items || {});
       const totalScans = items.reduce((s, [, v]) => s + (v.historique?.length || 0), 0);
@@ -1368,17 +1364,17 @@
       });
     }
 
-    // ── Render Crafts (depuis API backend) ─────────────────────────────────────
+    // ── Crafts depuis API backend ───────────────────────────────────────────────
     async function loadCraftsFromAPI() {
       try {
         const headers = {};
         if (_token) headers["Authorization"] = "Bearer " + _token;
         const res = await fetch(API_BASE + "/api/crafts", { headers });
+        if (!res.ok) throw new Error("Backend HTTP " + res.status);
         const data = await res.json();
         renderCraftsFromAPI(data);
       } catch (e) {
-        // Fallback : charge les crafts bruts sans filtre (mode dégradé)
-        console.warn("Backend indisponible, chargement crafts local:", e);
+        console.warn("Backend indisponible, fallback local:", e.message);
         if (_craftsData && _pricesData) renderCraftsLocal(_craftsData, _pricesData);
       }
     }
@@ -1402,10 +1398,8 @@
       document.getElementById("premium-banner").style.display = showBanner ? "flex" : "none";
 
       _craftTableData = crafts.map(c => ({
-        nom: c.nom,
-        rarete: c.rarete,
-        locked: c.locked,
-        compLines: c.locked ? [] : (c.composants || []).map(comp => `<span>${comp.nom} <span class="badge ${comp.rarete}" style="font-size:.55rem">${comp.rarete}</span> ×${comp.quantite}</span> = <span class="comp-price">${comp.prix_total !== undefined ? fmt(comp.prix_total) + " k" : "?"}</span>`),
+        nom: c.nom, rarete: c.rarete, locked: c.locked,
+        compLines: c.locked ? [] : (c.composants || []).map(comp => `<span>${comp.nom} <span class="badge ${comp.rarete}" style="font-size:.55rem">${comp.rarete}</span> ×${comp.quantite}</span>`),
         cout: c.cout ?? null,
         hdv: c.hdv ?? null,
         bk: c.benef_k ?? null,
@@ -1414,36 +1408,7 @@
       renderCraftsTable();
     }
 
-    function renderCraftsTable() {
-      const rows = [..._craftTableData];
-      if (_craftSortCol) rows.sort((a, b) => {
-        if (a.locked && !b.locked) return 1; if (!a.locked && b.locked) return -1;
-        const va = a[_craftSortCol] ?? -Infinity, vb = b[_craftSortCol] ?? -Infinity;
-        return (va < vb ? -1 : va > vb ? 1 : 0) * _craftSortDir;
-      });
-      const tbody = document.getElementById("crafts-tbody"); tbody.innerHTML = "";
-      rows.forEach((r, i) => {
-        const tr = document.createElement("tr"); tr.style.animationDelay = (i * 30) + "ms";
-        if (r.locked) {
-          tr.classList.add("locked-row");
-          tr.innerHTML = `<td colspan="6" style="text-align:center;opacity:.45;font-size:.82rem"><span class="lock-icon">🔒</span>Craft réservé aux membres <strong style="color:var(--premium)">Premium</strong></td>`;
-        } else {
-          const benefCls = r.bk === null ? "benef-na" : r.bk >= 0 ? "benef-pos" : "benef-neg";
-          const benefKStr = r.bk !== null ? `<span class="${benefCls}">${r.bk >= 0 ? "+" : ""}${fmt(r.bk)} k</span>` : `<span class="benef-na">—</span>`;
-          const benefPStr = r.bpct !== null ? `<span class="${benefCls}">${r.bpct >= 0 ? "+" : ""}${r.bpct}%</span>` : `<span class="benef-na">—</span>`;
-          const compHTML = r.compLines.length ? r.compLines.join("<br>") : '<span class="benef-na">—</span>';
-          tr.innerHTML = `
-          <td><strong style="text-transform:capitalize">${r.nom}</strong><br><span class="badge ${r.rarete}" style="margin-top:4px;display:inline-block">${r.rarete}</span></td>
-          <td class="comp-list">${compHTML}</td>
-          <td class="td-prix">${r.cout !== null ? fmt(r.cout) + " k" : '<span class="benef-na">?</span>'}</td>
-          <td class="td-prix">${r.hdv !== null ? fmt(r.hdv) + " k" : '<span class="benef-na">?</span>'}</td>
-          <td>${benefKStr}</td><td>${benefPStr}</td>`;
-        }
-        tbody.appendChild(tr);
-      });
-    }
-
-    // Fallback local (si backend indisponible)
+    // Fallback local si backend down
     function renderCraftsLocal(craftsData, pricesData) {
       const crafts = Object.values(craftsData.crafts || {});
       const items = pricesData?.items || {};
@@ -1462,16 +1427,45 @@
         const craftKey = `${craft.nom}|${craft.rarete}`, craftHist = items[craftKey]?.historique || [], prixHDV = craftHist.length ? craftHist.at(-1).prix : null;
         let benefKamas = null, benefPct = null;
         if (allKnown && coutTotal > 0 && prixHDV !== null) { benefKamas = prixHDV - coutTotal; benefPct = parseFloat(((benefKamas / coutTotal) * 100).toFixed(1)); }
-        return { nom: craft.nom, rarete: craft.rarete, compLines, locked: false, cout: allKnown && coutTotal ? coutTotal : null, hdv: prixHDV, bk: benefKamas, bpct: benefPct };
+        return { nom: craft.nom, rarete: craft.rarete, locked: false, compLines, cout: allKnown && coutTotal ? coutTotal : null, hdv: prixHDV, bk: benefKamas, bpct: benefPct };
       });
       renderCraftsTable();
     }
 
-    // ── Admin panel ─────────────────────────────────────────────────────────────
+    function renderCraftsTable() {
+      const rows = [..._craftTableData];
+      if (_craftSortCol) rows.sort((a, b) => {
+        if (a.locked && !b.locked) return 1; if (!a.locked && b.locked) return -1;
+        const va = a[_craftSortCol] ?? -Infinity, vb = b[_craftSortCol] ?? -Infinity;
+        return (va < vb ? -1 : va > vb ? 1 : 0) * _craftSortDir;
+      });
+      const tbody = document.getElementById("crafts-tbody"); tbody.innerHTML = "";
+      rows.forEach((r, i) => {
+        const tr = document.createElement("tr"); tr.style.animationDelay = (i * 30) + "ms";
+        if (r.locked) {
+          tr.classList.add("locked-row");
+          tr.innerHTML = `<td colspan="6" style="text-align:center;opacity:.45;font-size:.82rem">🔒 Craft réservé aux membres <strong style="color:var(--premium)">Premium</strong></td>`;
+        } else {
+          const benefCls = r.bk === null ? "benef-na" : r.bk >= 0 ? "benef-pos" : "benef-neg";
+          const benefKStr = r.bk !== null ? `<span class="${benefCls}">${r.bk >= 0 ? "+" : ""}${fmt(r.bk)} k</span>` : `<span class="benef-na">—</span>`;
+          const benefPStr = r.bpct !== null ? `<span class="${benefCls}">${r.bpct >= 0 ? "+" : ""}${r.bpct}%</span>` : `<span class="benef-na">—</span>`;
+          tr.innerHTML = `
+          <td><strong style="text-transform:capitalize">${r.nom}</strong><br><span class="badge ${r.rarete}" style="margin-top:4px;display:inline-block">${r.rarete}</span></td>
+          <td class="comp-list">${r.compLines.join("<br>") || "—"}</td>
+          <td class="td-prix">${r.cout !== null ? fmt(r.cout) + " k" : '<span class="benef-na">?</span>'}</td>
+          <td class="td-prix">${r.hdv !== null ? fmt(r.hdv) + " k" : '<span class="benef-na">?</span>'}</td>
+          <td>${benefKStr}</td><td>${benefPStr}</td>`;
+        }
+        tbody.appendChild(tr);
+      });
+    }
+
+    // ── Admin ───────────────────────────────────────────────────────────────────
     async function loadAdminUsers() {
       if (!_user || _user.role !== "admin") return;
       try {
         const data = await apiCall("/api/admin/users");
+        if (data.error) { console.error(data.error); return; }
         const tbody = document.getElementById("admin-tbody");
         const empty = document.getElementById("empty-admin");
         tbody.innerHTML = "";
@@ -1479,7 +1473,6 @@
         empty.style.display = "none";
         data.users.forEach(u => {
           const tr = document.createElement("tr");
-          const rb = u.role === "premium" ? "rb-premium" : u.role === "admin" ? "rb-admin" : "rb-basic";
           tr.innerHTML = `
           <td class="td-muted">${u.id}</td>
           <td><strong>${u.username}</strong></td>
@@ -1501,7 +1494,7 @@
     async function changeRole(id, role) {
       try {
         const data = await apiCall(`/api/admin/users/${id}`, "PATCH", { role });
-        if (data.error) { alert("Erreur : " + data.error); }
+        if (data.error) alert("Erreur : " + data.error);
       } catch (e) { alert("Erreur réseau"); }
     }
 
@@ -1514,7 +1507,7 @@
       } catch (e) { alert("Erreur réseau"); }
     }
 
-    // ── Chargement principal ───────────────────────────────────────────────────
+    // ── Chargement principal ────────────────────────────────────────────────────
     async function loadData() {
       const btn = document.getElementById("refresh-btn");
       btn.classList.add("spinning");
