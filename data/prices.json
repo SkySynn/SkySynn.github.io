@@ -305,7 +305,17 @@
           "prix": 1
         }
       ]
+    },
+    "sioupere-glou grossière|commun": {
+      "nom": "sioupere-glou grossière",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T13:42:37Z",
+          "prix": 205
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T13:42:29Z"
+  "last_updated": "2026-02-22T13:42:37Z"
 }
