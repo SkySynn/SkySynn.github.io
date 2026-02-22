@@ -723,7 +723,17 @@
           "prix": 118
         }
       ]
+    },
+    "chardominateur|commun": {
+      "nom": "chardominateur",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:40:36Z",
+          "prix": 70
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:40:29Z"
+  "last_updated": "2026-02-22T15:40:36Z"
 }
