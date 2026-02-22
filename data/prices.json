@@ -393,7 +393,17 @@
           "prix": 80
         }
       ]
+    },
+    "trefle parfumé|commun": {
+      "nom": "trefle parfumé",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:36:03Z",
+          "prix": 70
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:35:55Z"
+  "last_updated": "2026-02-22T15:36:03Z"
 }
