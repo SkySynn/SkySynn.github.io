@@ -743,7 +743,17 @@
           "prix": 88
         }
       ]
+    },
+    "rozen|commun": {
+      "nom": "rozen",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:40:57Z",
+          "prix": 89
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:40:49Z"
+  "last_updated": "2026-02-22T15:40:57Z"
 }
