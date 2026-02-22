@@ -503,7 +503,17 @@
           "prix": 430
         }
       ]
+    },
+    "edelweiss|commun": {
+      "nom": "edelweiss",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:37:30Z",
+          "prix": 286
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:37:22Z"
+  "last_updated": "2026-02-22T15:37:30Z"
 }
