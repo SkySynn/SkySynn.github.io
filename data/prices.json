@@ -563,7 +563,17 @@
           "prix": 616
         }
       ]
+    },
+    "clou de gifle|commun": {
+      "nom": "clou de gifle",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:38:22Z",
+          "prix": 67
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:38:09Z"
+  "last_updated": "2026-02-22T15:38:22Z"
 }
