@@ -593,7 +593,17 @@
           "prix": 80
         }
       ]
+    },
+    "fil exquis|commun": {
+      "nom": "fil exquis",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:38:51Z",
+          "prix": 996
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:38:44Z"
+  "last_updated": "2026-02-22T15:38:51Z"
 }
