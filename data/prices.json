@@ -543,7 +543,17 @@
           "prix": 164
         }
       ]
+    },
+    "boolet|commun": {
+      "nom": "boolet",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:37:59Z",
+          "prix": 227
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:37:52Z"
+  "last_updated": "2026-02-22T15:37:59Z"
 }
