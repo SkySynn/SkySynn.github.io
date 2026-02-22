@@ -433,7 +433,17 @@
           "prix": 201
         }
       ]
+    },
+    "fil rustique|commun": {
+      "nom": "fil rustique",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:36:33Z",
+          "prix": 1346
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:36:25Z"
+  "last_updated": "2026-02-22T15:36:33Z"
 }
