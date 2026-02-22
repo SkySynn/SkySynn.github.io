@@ -493,7 +493,17 @@
           "prix": 48
         }
       ]
+    },
+    "fil solide|commun": {
+      "nom": "fil solide",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:37:22Z",
+          "prix": 430
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:37:14Z"
+  "last_updated": "2026-02-22T15:37:22Z"
 }
