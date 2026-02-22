@@ -513,7 +513,17 @@
           "prix": 286
         }
       ]
+    },
+    "fleur de croton|commun": {
+      "nom": "fleur de croton",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:37:38Z",
+          "prix": 23
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:37:30Z"
+  "last_updated": "2026-02-22T15:37:38Z"
 }
