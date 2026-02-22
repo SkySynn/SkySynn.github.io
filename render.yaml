@@ -13,3 +13,13 @@ services:
         value: main
       - key: GITHUB_DATA_PATH
         value: data/prices.json
+      - key: GITHUB_CRAFTS_PATH
+        value: data/crafts.json
+      - key: JWT_SECRET_KEY
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ADMIN_USERNAME
+        value: admin
