@@ -623,7 +623,17 @@
           "prix": 800000
         }
       ]
+    },
+    "fil mystique|commun": {
+      "nom": "fil mystique",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:39:12Z",
+          "prix": 692
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:39:05Z"
+  "last_updated": "2026-02-22T15:39:12Z"
 }
