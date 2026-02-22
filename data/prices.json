@@ -363,7 +363,17 @@
           "prix": 92
         }
       ]
+    },
+    "fleur de lin|commun": {
+      "nom": "fleur de lin",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:35:40Z",
+          "prix": 91
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:35:33Z"
+  "last_updated": "2026-02-22T15:35:40Z"
 }
