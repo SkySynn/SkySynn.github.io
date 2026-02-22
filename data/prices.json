@@ -383,7 +383,17 @@
           "prix": 370
         }
       ]
+    },
+    "fleur d'orchidée|commun": {
+      "nom": "fleur d'orchidée",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:35:55Z",
+          "prix": 80
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:35:46Z"
+  "last_updated": "2026-02-22T15:35:55Z"
 }
