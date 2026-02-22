@@ -673,7 +673,17 @@
           "prix": 120
         }
       ]
+    },
+    "fil divin|commun": {
+      "nom": "fil divin",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:39:58Z",
+          "prix": 179
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:39:50Z"
+  "last_updated": "2026-02-22T15:39:58Z"
 }
