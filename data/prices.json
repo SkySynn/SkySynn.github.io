@@ -663,7 +663,17 @@
           "prix": 109
         }
       ]
+    },
+    "moumousse|commun": {
+      "nom": "moumousse",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:39:50Z",
+          "prix": 120
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:39:42Z"
+  "last_updated": "2026-02-22T15:39:50Z"
 }
