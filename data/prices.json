@@ -633,7 +633,17 @@
           "prix": 692
         }
       ]
+    },
+    "grâce du jour|commun": {
+      "nom": "grâce du jour",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:39:20Z",
+          "prix": 185
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:39:12Z"
+  "last_updated": "2026-02-22T15:39:20Z"
 }
