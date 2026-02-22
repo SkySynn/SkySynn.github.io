@@ -1,88 +1,351 @@
 {
   "crafts": {
-    "huile grossière|commun": {
-      "nom": "huile grossière",
+    "fil grossier|commun": {
+      "nom": "fil grossier",
       "rarete": "commun",
       "composants": [
-        {
-          "nom": "fleur d'irisse",
-          "rarete": "commun",
-          "quantite": 5
-        },
         {
           "nom": "chardon couronné",
           "rarete": "commun",
           "quantite": 5
+        },
+        {
+          "nom": "fleur d'irisse",
+          "rarete": "commun",
+          "quantite": 5
         }
       ]
     },
-    "bas-ventre d'ésrevni|legendaire": {
-      "nom": "bas-ventre d'ésrevni",
-      "rarete": "legendaire",
+    "poudre à canoon|rare": {
+      "nom": "poudre à canoon",
+      "rarete": "rare",
       "composants": [
         {
-          "nom": "poudre",
-          "rarete": "legendaire",
-          "quantite": 574
+          "nom": "chardon couronné",
+          "rarete": "commun",
+          "quantite": 5
         },
         {
-          "nom": "haricot sympa",
-          "rarete": "rare",
-          "quantite": 11
-        },
-        {
-          "nom": "mouchards de démentia",
-          "rarete": "rare",
-          "quantite": 11
-        },
-        {
-          "nom": "bas-ventre d'ésrevni",
-          "rarete": "mythique",
+          "nom": "humus",
+          "rarete": "commun",
           "quantite": 1
-        },
-        {
-          "nom": "trophée de !@#dh`~",
-          "rarete": "mythique",
-          "quantite": 9
-        },
-        {
-          "nom": "scalp de réman'hante",
-          "rarete": "commun",
-          "quantite": 104
-        },
-        {
-          "nom": "sioupère-glou infernale",
-          "rarete": "commun",
-          "quantite": 95
-        },
-        {
-          "nom": "essence infernale",
-          "rarete": "commun",
-          "quantite": 45
         }
       ]
     },
-    "casque shin larve imperial|mythique": {
-      "nom": "casque shin larve imperial",
+    "fil rudimentaire|commun": {
+      "nom": "fil rudimentaire",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "feuille de menthe",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "fleur de lin",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "serpe|commun": {
+      "nom": "serpe",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "fil rudimentaire",
+          "rarete": "commun",
+          "quantite": 10
+        },
+        {
+          "nom": "bave de mimic",
+          "rarete": "commun",
+          "quantite": 4
+        }
+      ]
+    },
+    "menthole|commun": {
+      "nom": "menthole",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "feuille de menthe",
+          "rarete": "commun",
+          "quantite": 10
+        }
+      ]
+    },
+    "fil imparfait|commun": {
+      "nom": "fil imparfait",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "fleur d'orchidée",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "trefle parfumé",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "fil fragile|commun": {
+      "nom": "fil fragile",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "algue narine",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "feuille de fougère duvet",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "fil rustique|commun": {
+      "nom": "fil rustique",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "tige de roseau",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "baie de gargousier",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "serpe aisk|rare": {
+      "nom": "serpe aisk",
+      "rarete": "rare",
+      "composants": [
+        {
+          "nom": "fil imparfait",
+          "rarete": "commun",
+          "quantite": 7
+        },
+        {
+          "nom": "fil fragile",
+          "rarete": "commun",
+          "quantite": 7
+        },
+        {
+          "nom": "serpe",
+          "rarete": "commun",
+          "quantite": 3
+        },
+        {
+          "nom": "bave de mimic",
+          "rarete": "commun",
+          "quantite": 3
+        }
+      ]
+    },
+    "fil brut|commun": {
+      "nom": "fil brut",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "pied de boufton",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "fleur de rhodon",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "fil solide|commun": {
+      "nom": "fil solide",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "edelweiss",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "fleur de croton",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "fil durable|commun": {
+      "nom": "fil durable",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "feuille d'aloa vero",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "boolet",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "serpe hier|mythique": {
+      "nom": "serpe hier",
       "rarete": "mythique",
       "composants": [
         {
-          "nom": "patte de shin larve",
-          "rarete": "mythique",
-          "quantite": 1
-        },
-        {
-          "nom": "peau de nutellarve",
+          "nom": "serpe aisk",
           "rarete": "rare",
-          "quantite": 1
+          "quantite": 3
         },
         {
-          "nom": "sioupere-glou grossière",
+          "nom": "fil solide",
           "rarete": "commun",
-          "quantite": 12
+          "quantite": 13
         },
         {
-          "nom": "fibre grossière",
+          "nom": "fil durable",
+          "rarete": "commun",
+          "quantite": 13
+        },
+        {
+          "nom": "bave de mimic",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "fil raffiné|commun": {
+      "nom": "fil raffiné",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "piège de dionnée",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "clou de gifle",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "fil precieux|commun": {
+      "nom": "fil precieux",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "pulstile soufrée",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "fleur de kamamille",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "fil exquis|commun": {
+      "nom": "fil exquis",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "amanite",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "eter",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "fil mystique|commun": {
+      "nom": "fil mystique",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "grâce du jour",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "fleur de tahitiarée",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "fil eternet|commun": {
+      "nom": "fil eternet",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "feuille d'ortie",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "moumousse",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "fil divin|commun": {
+      "nom": "fil divin",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "delphes hiniom",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "fleur-flocon",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "fil infernal|commun": {
+      "nom": "fil infernal",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "galinsoga démoniaque",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "chardominateur",
+          "rarete": "commun",
+          "quantite": 5
+        }
+      ]
+    },
+    "fil encestral|commun": {
+      "nom": "fil encestral",
+      "rarete": "commun",
+      "composants": [
+        {
+          "nom": "primaniola",
+          "rarete": "commun",
+          "quantite": 5
+        },
+        {
+          "nom": "rozen",
           "rarete": "commun",
           "quantite": 5
         }
