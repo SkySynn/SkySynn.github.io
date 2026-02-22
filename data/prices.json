@@ -693,7 +693,17 @@
           "prix": 153
         }
       ]
+    },
+    "fleur-flocon|commun": {
+      "nom": "fleur-flocon",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:40:14Z",
+          "prix": 97
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:40:06Z"
+  "last_updated": "2026-02-22T15:40:14Z"
 }
