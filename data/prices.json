@@ -423,7 +423,17 @@
           "prix": 719
         }
       ]
+    },
+    "feuille de fougère duvet|commun": {
+      "nom": "feuille de fougère duvet",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:36:25Z",
+          "prix": 201
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:36:17Z"
+  "last_updated": "2026-02-22T15:36:25Z"
 }
