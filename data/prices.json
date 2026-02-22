@@ -523,7 +523,17 @@
           "prix": 23
         }
       ]
+    },
+    "fil durable|commun": {
+      "nom": "fil durable",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:37:44Z",
+          "prix": 771
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:37:38Z"
+  "last_updated": "2026-02-22T15:37:44Z"
 }
