@@ -583,7 +583,17 @@
           "prix": 1195
         }
       ]
+    },
+    "fleur de kamamille|commun": {
+      "nom": "fleur de kamamille",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:38:44Z",
+          "prix": 80
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:38:30Z"
+  "last_updated": "2026-02-22T15:38:44Z"
 }
