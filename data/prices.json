@@ -443,7 +443,17 @@
           "prix": 1346
         }
       ]
+    },
+    "tige de roseau|commun": {
+      "nom": "tige de roseau",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:36:40Z",
+          "prix": 173
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:36:33Z"
+  "last_updated": "2026-02-22T15:36:40Z"
 }
