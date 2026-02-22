@@ -733,7 +733,17 @@
           "prix": 70
         }
       ]
+    },
+    "primaniola|commun": {
+      "nom": "primaniola",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:40:49Z",
+          "prix": 88
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:40:36Z"
+  "last_updated": "2026-02-22T15:40:49Z"
 }
