@@ -413,7 +413,17 @@
           "prix": 520
         }
       ]
+    },
+    "algue narine|commun": {
+      "nom": "algue narine",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:36:17Z",
+          "prix": 719
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:36:09Z"
+  "last_updated": "2026-02-22T15:36:17Z"
 }
