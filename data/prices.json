@@ -603,7 +603,17 @@
           "prix": 996
         }
       ]
+    },
+    "amanite|commun": {
+      "nom": "amanite",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:38:59Z",
+          "prix": 139
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:38:51Z"
+  "last_updated": "2026-02-22T15:38:59Z"
 }
