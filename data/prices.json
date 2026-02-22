@@ -373,7 +373,17 @@
           "prix": 91
         }
       ]
+    },
+    "fil imparfait|commun": {
+      "nom": "fil imparfait",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:35:46Z",
+          "prix": 370
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:35:40Z"
+  "last_updated": "2026-02-22T15:35:46Z"
 }
