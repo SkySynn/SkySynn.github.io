@@ -703,7 +703,17 @@
           "prix": 97
         }
       ]
+    },
+    "fil infernal|commun": {
+      "nom": "fil infernal",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:40:23Z",
+          "prix": 318
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:40:14Z"
+  "last_updated": "2026-02-22T15:40:23Z"
 }
