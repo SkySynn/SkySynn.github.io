@@ -483,7 +483,17 @@
           "prix": 134
         }
       ]
+    },
+    "fleur de rhodon|commun": {
+      "nom": "fleur de rhodon",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:37:14Z",
+          "prix": 48
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:37:06Z"
+  "last_updated": "2026-02-22T15:37:14Z"
 }
