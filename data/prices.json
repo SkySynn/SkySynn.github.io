@@ -295,7 +295,17 @@
           "prix": 100
         }
       ]
+    },
+    "peau de nutellarve|rare": {
+      "nom": "peau de nutellarve",
+      "rarete": "rare",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T13:42:29Z",
+          "prix": 1
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T13:42:21Z"
+  "last_updated": "2026-02-22T13:42:29Z"
 }
