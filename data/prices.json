@@ -403,7 +403,17 @@
           "prix": 70
         }
       ]
+    },
+    "fil fragile|commun": {
+      "nom": "fil fragile",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:36:09Z",
+          "prix": 520
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:36:03Z"
+  "last_updated": "2026-02-22T15:36:09Z"
 }
