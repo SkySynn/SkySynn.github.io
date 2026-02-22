@@ -343,7 +343,17 @@
           "prix": 805
         }
       ]
+    },
+    "fil rudimentaire|commun": {
+      "nom": "fil rudimentaire",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:35:27Z",
+          "prix": 796
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:35:19Z"
+  "last_updated": "2026-02-22T15:35:27Z"
 }
