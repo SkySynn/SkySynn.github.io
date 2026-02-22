@@ -573,7 +573,17 @@
           "prix": 67
         }
       ]
+    },
+    "fil precieux|commun": {
+      "nom": "fil precieux",
+      "rarete": "commun",
+      "historique": [
+        {
+          "timestamp": "2026-02-22T15:38:30Z",
+          "prix": 1195
+        }
+      ]
     }
   },
-  "last_updated": "2026-02-22T15:38:22Z"
+  "last_updated": "2026-02-22T15:38:30Z"
 }
